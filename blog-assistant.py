@@ -3,7 +3,7 @@ import shutil
 
 def create_blog(bloglFileName, date, age, myJourneyFileName):
     template_path = 'D:\\Personal\\milagates\\Mila\\blogs\\blog-template.html'
-    output_path = f'D:\\Personal\\milagates\\Mila\\blogs\\{bloglFileName}.html'
+    output_path = f'D:\\Personal\\milagates\\Mila\\blogs\\one-year\\{bloglFileName}.html'
     blog_list_path = 'D:\\Personal\\milagates\\Mila\\blogs\\blog-list.html'
     template_folder = 'D:\\Personal\\milagates\\Mila\\my-journey\\one-year\\template'
     one_year_journey_list_path = 'D:\\Personal\\milagates\\Mila\\my-journey\\one-year\\one-year-journey.html'

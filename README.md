@@ -1,12 +1,13 @@
+
 # Mila Blog Helper
 
-This is a Python script to help automate the creation and updating of blog entries for Mila's blog.
+This Python script automates the creation and updating of blog entries for Mila's blog, creating both “Blog” and “My Journey” entries in a structured format based on Mila's age.
 
 ## Script: blog-assistant.py
 
 ### Description
 
-The `blog-assistant.py` script automates the process of creating a new blog entry based on a template and appending the new entry to the `blog-list.html`.
+The `blog-assistant.py` script automates the process of creating new blog entries and journey entries based on templates. It dynamically generates paths based on Mila's age and appends the new entry to `blog-list.html` and `one-year-journey.html`.
 
 ### Usage
 
@@ -28,42 +29,40 @@ The `blog-assistant.py` script automates the process of creating a new blog entr
      ```
 
 3. **Provide the inputs when prompted:**
-   - `Enter file name (e.g., blog-one-year-one-months): `
-   - `Enter the date (e.g., July 30, 2023): `
-   - `Enter Mila's age (e.g., 1 year 1 month): `
+   - `Enter Mila's age (e.g., '1 Year and 5 Months'): `
+   - Confirm each dynamically generated path and filename for Blog and My Journey files.
 
 ### Script Details
 
-#### `update_blog(htmlFile, date, age)`
+#### `create_blog_entries(date, age, myJourneyFileName, blog_output_path, journey_output_path, blog_template_path, journey_template_folder, journey_list_path)`
 
 - **Parameters:**
 
-  - `htmlFile`: The file name for the new blog post.
   - `date`: The date of the blog post.
   - `age`: Mila's age for the blog post.
+  - `myJourneyFileName`: The dynamic file name for the journey entry based on age.
+  - `blog_output_path`: Path for the new blog HTML file.
+  - `journey_output_path`: Path for the new journey HTML file.
+  - `blog_template_path`: Path to the blog template file.
+  - `journey_template_folder`: Path to the My Journey template folder.
+  - `journey_list_path`: Path to the journey list file (e.g., `one-year-journey.html`).
 
 - **Functionality:**
-  - Reads the `blog-template.html`.
-  - Replaces the placeholders (`{{date}}`, `{{age}}`) with the provided inputs.
-  - Writes the new blog content to a new HTML file.
-  - Calls `append_to_blog_list` to update `blog-list.html`.
+  - Reads and replaces placeholders in the `blog-template.html`.
+  - Creates a new blog and journey HTML file in their respective folders.
+  - Updates `blog-list.html` and the journey list file with the new entries.
 
-#### `append_to_blog_list(blog_list_path, date, age, blog_path)`
+### Dynamic Image Paths
 
-- **Parameters:**
+The image paths are dynamically generated based on Mila's age, structured as:
+```
+<img src="../assets/images/birthday/{one-year}/{one-year-five-months}/1.jpg" alt="">
+```
+This structure is automatically generated when creating the blog entry.
 
-  - `blog_list_path`: The path to the blog list file.
-  - `date`: The date of the blog post.
-  - `age`: Mila's age for the blog post.
-  - `blog_path`: The path to the new blog post file.
+### Example
 
-- **Functionality:**
-  - Generates a new blog entry HTML.
-  - Appends the new entry to `blog-list.html`.
-
-## Example
-
-After running the script and providing the necessary inputs, a new blog post will be created and the blog list will be updated accordingly.
+After running the script and confirming each path, a new blog and journey entry will be created, and both lists will be updated.
 
 ### Template File (`blog-template.html`)
 
